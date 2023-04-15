@@ -42,4 +42,10 @@ public class DiscreteLogController {
         return discreteLogCalculators.get("rhoAlgorithm").calculateDiscreteLog(generator, base, prime);
     }
 
+    @GetMapping(value="/exhaustive-search", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public DiscreteLogMetadata exhaustiveSearch(@RequestParam BigInteger generator, @RequestParam BigInteger base, @RequestParam BigInteger prime){
+        return discreteLogCalculators.get("exhaustiveSearchAlgorithm").calculateDiscreteLog(generator, base, prime);
+    }
+
 }
